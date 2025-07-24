@@ -1,2 +1,2 @@
-gerador/samples
-
+gerador/samples/*
+/venv
