@@ -1,37 +1,109 @@
-# Gerador de Samples
+# Otimização de Produção e Distribuição Integrada com Múltiplas Plantas
 
-## Requisitos
+Este repositório contém um modelo de otimização matemática para resolver um problema complexo de dimensionamento de lotes, produção e distribuição para uma indústria de embalagens de alumínio com múltiplas plantas e centros de distribuição na América do Sul.
 
-- Python 3.13.1
-- Pandas 2.2.3
-- Openpyxl 3.1.5
+## Contexto do Problema
 
-## Instruções
+O projeto aborda o desafio de uma empresa multinacional de latas de alumínio, que opera com produção contínua em diversas plantas e linhas de produção. O atendimento aos clientes é realizado tanto diretamente das fábricas quanto através de centros de distribuição externos.
 
-### Instalação de Dependências
+O objetivo principal é criar um plano de produção e logística que minimize os custos totais de distribuição (frete e armazenagem) e, ao mesmo tempo, minimize o backlog (demandas não atendidas), garantindo que os produtos cheguem aos clientes nos períodos corretos.
 
-```[bash]
-python -m venv venv
-source venv\Scripts\activate
-pip install -r requirements.txt
+### Principais Desafios e Restrições:
+* **Produção:** A produção é limitada pela *capacidade* (taxa de produção e tempo disponível) e pela *capabilidade* (quais tipos de produtos uma linha consegue produzir em um determinado período).
+* **Distribuição:** Clientes podem ser atendidos por diferentes rotas, cada uma com seu custo de frete e tempo de entrega (lead time) associados.
+* **Armazenagem:** Tanto as plantas quanto os centros de distribuição possuem capacidade de armazenagem limitada e custos associados.
+* **Demandas:** As demandas dos clientes são específicas por produto, cliente e período (dia) e devem ser atendidas sem atrasos. Demandas não atendidas no período são consideradas *backlog* e não podem ser postergadas.
+
+## Estrutura do Repositório
+
+
+Claro! Aqui está o texto completo formatado em Markdown, pronto para ser copiado e colado em seu arquivo README.md.
+
+Markdown
+
+# Otimização de Produção e Distribuição Integrada com Múltiplas Plantas
+
+Este repositório contém um modelo de otimização matemática para resolver um problema complexo de dimensionamento de lotes, produção e distribuição para uma indústria de embalagens de alumínio com múltiplas plantas e centros de distribuição na América do Sul.
+
+## Contexto do Problema
+
+O projeto aborda o desafio de uma empresa multinacional de latas de alumínio, que opera com produção contínua em diversas plantas e linhas de produção. O atendimento aos clientes é realizado tanto diretamente das fábricas quanto através de centros de distribuição externos.
+
+O objetivo principal é criar um plano de produção e logística que minimize os custos totais de distribuição (frete e armazenagem) e, ao mesmo tempo, minimize o backlog (demandas não atendidas), garantindo que os produtos cheguem aos clientes nos períodos corretos.
+
+### Principais Desafios e Restrições:
+* **Produção:** A produção é limitada pela *capacidade* (taxa de produção e tempo disponível) e pela *capabilidade* (quais tipos de produtos uma linha consegue produzir em um determinado período).
+* **Distribuição:** Clientes podem ser atendidos por diferentes rotas, cada uma com seu custo de frete e tempo de entrega (lead time) associados.
+* **Armazenagem:** Tanto as plantas quanto os centros de distribuição possuem capacidade de armazenagem limitada e custos associados.
+* **Demandas:** As demandas dos clientes são específicas por produto, cliente e período (dia) e devem ser atendidas sem atrasos. Demandas não atendidas no período são consideradas *backlog* e não podem ser postergadas.
+
+## Estrutura do Repositório
+
+
+```
+.
+├── docs/                 # Documentação e apresentações do projeto
+├── gerador/              # Scripts para gerar dados de exemplo (samples)
+├── lead_timeless/        # Versão do modelo sem considerar lead time
+│   ├── sample_data/
+│   └── data_pipeline.ipynb
+├── v4/                   # Versão do modelo que implementa lead time
+│   ├── sample_data/
+│   ├── results/
+│   └── data_pipeline_v4.ipynb
+├── modelo.ipynb          # Jupyter Notebook com a formulação matemática do problema
+└── requirements.txt      # Dependências do projeto
 ```
 
-Caso dê algum conflito entre a sua versão do Python e as versões das depedências, tente instala-las sem especificar uma versão, o uso deles nesse script é simples e não deve apresentar muitas complicações em versões diferentes.
 
-### Execução
+## Como Utilizar
 
-Basta executar o arquivo generate_sample.py
+### 1. Pré-requisitos
 
-```[bash]
-python generate_sample.py
-```
+Para executar os modelos e scripts, você precisará ter o Python 3 e as bibliotecas listadas no arquivo `requirements.txt` instaladas.
 
-Será criada uma pasta chamada "samples", dentro dela, os arquivos de sample serão gerados, sempre com o nome "YYYYmmdd_HHMMSS_sample.xlsx".
+**Instalação das Dependências:**
 
-Os dados são gerados de forma randômica e com uma consistência básica entre nomes de campos (exemplo: nomes de linhas entre dados).
+1.  Crie e ative um ambiente virtual (recomendado):
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # Para Linux/macOS
+    # ou
+    .\venv\Scripts\activate   # Para Windows
+    ```
+2.  Instale as dependências:
+    ```bash
+    pip install -r requirements.txt
+    ```
+    *Observação: O modelo utiliza solvers de otimização como HiGHS e Gurobi, que são instalados via `pyomo` e `highspy`.*
 
-No inicio do arquivo existem algumas constates que podem ser utilizadas para manipular alguns aspectos dos dados gerados, como por exemplo:
+### 2. Geração de Dados de Amostra
 
+O repositório inclui um script para gerar dados de exemplo aleatórios, mantendo a consistência entre eles.
 
-- __DEFAULT_PERIODS: Para definir quantos dias de períodos considerar
-- __DEFAULT_PLANTS: Número de plantas produtivas para considerar
+* Para gerar uma nova amostra, execute o script `generate_sample.py` dentro da pasta `gerador`:
+    ```bash
+    python gerador/generate_sample.py
+    ```
+* Novos arquivos de amostra em formato `.xlsx` serão criados na pasta `gerador/samples/`.
+
+### 3. Execução do Modelo de Otimização
+
+Os modelos de otimização estão implementados em Jupyter Notebooks:
+* `lead_timeless/data_pipeline.ipynb`: Uma versão inicial do modelo.
+* `v4/data_pipeline_v4.ipynb`: A versão mais completa que considera o **lead time** nas entregas.
+
+Para executar o modelo, abra um dos notebooks, carregue os dados de entrada (da pasta `sample_data/`) e execute as células. O resultado da otimização será salvo na pasta de resultados correspondente (ex: `v4/results/`).
+
+## Modelo Matemático
+
+A formulação matemática do problema está detalhada no arquivo `modelo.ipynb`. Em resumo, o modelo busca:
+
+**Minimizar:**
+`Custo Total = (Custo de Frete) + (Custo de Armazenagem) + (Penalidade por Backlog)`
+
+**Sujeito a Restrições de:**
+* Capacidade e Capabilidade de Produção
+* Balanço de Estoque nas Plantas e Centros de Distribuição
+* Capacidade Máxima de Armazenagem
+* Atendimento da Demanda (considerando lead times)
