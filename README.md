@@ -14,23 +14,6 @@ O objetivo principal é criar um plano de produção e logística que minimize o
 * **Armazenagem:** Tanto as plantas quanto os centros de distribuição possuem capacidade de armazenagem limitada e custos associados.
 * **Demandas:** As demandas dos clientes são específicas por produto, cliente e período (dia) e devem ser atendidas sem atrasos. Demandas não atendidas no período são consideradas *backlog* e não podem ser postergadas.
 
-
-# Otimização de Produção e Distribuição Integrada com Múltiplas Plantas
-
-Este repositório contém um modelo de otimização matemática para resolver um problema complexo de dimensionamento de lotes, produção e distribuição para uma indústria de embalagens de alumínio com múltiplas plantas e centros de distribuição na América do Sul.
-
-## Contexto do Problema
-
-O projeto aborda o desafio de uma empresa multinacional de latas de alumínio, que opera com produção contínua em diversas plantas e linhas de produção. O atendimento aos clientes é realizado tanto diretamente das fábricas quanto através de centros de distribuição externos.
-
-O objetivo principal é criar um plano de produção e logística que minimize os custos totais de distribuição (frete e armazenagem) e, ao mesmo tempo, minimize o backlog (demandas não atendidas), garantindo que os produtos cheguem aos clientes nos períodos corretos.
-
-### Principais Desafios e Restrições:
-* **Produção:** A produção é limitada pela *capacidade* (taxa de produção e tempo disponível) e pela *capabilidade* (quais tipos de produtos uma linha consegue produzir em um determinado período).
-* **Distribuição:** Clientes podem ser atendidos por diferentes rotas, cada uma com seu custo de frete e tempo de entrega (lead time) associados.
-* **Armazenagem:** Tanto as plantas quanto os centros de distribuição possuem capacidade de armazenagem limitada e custos associados.
-* **Demandas:** As demandas dos clientes são específicas por produto, cliente e período (dia) e devem ser atendidas sem atrasos. Demandas não atendidas no período são consideradas *backlog* e não podem ser postergadas.
-
 ## Estrutura do Repositório
 
 
