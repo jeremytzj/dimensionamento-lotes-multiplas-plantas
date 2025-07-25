@@ -14,12 +14,6 @@ O objetivo principal é criar um plano de produção e logística que minimize o
 * **Armazenagem:** Tanto as plantas quanto os centros de distribuição possuem capacidade de armazenagem limitada e custos associados.
 * **Demandas:** As demandas dos clientes são específicas por produto, cliente e período (dia) e devem ser atendidas sem atrasos. Demandas não atendidas no período são consideradas *backlog* e não podem ser postergadas.
 
-## Estrutura do Repositório
-
-
-Claro! Aqui está o texto completo formatado em Markdown, pronto para ser copiado e colado em seu arquivo README.md.
-
-Markdown
 
 # Otimização de Produção e Distribuição Integrada com Múltiplas Plantas
 
