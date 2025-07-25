@@ -44,13 +44,11 @@ O objetivo principal é criar um plano de produção e logística que minimize o
 .
 ├── docs/                 # Documentação e apresentações do projeto
 ├── gerador/              # Scripts para gerar dados de exemplo (samples)
-├── lead_timeless/        # Versão do modelo sem considerar lead time
-│   ├── sample_data/
-│   └── data_pipeline.ipynb
-├── v4/                   # Versão do modelo que implementa lead time
+├── modelo/               # Código do modelo 
 │   ├── sample_data/
 │   ├── results/
-│   └── data_pipeline_v4.ipynb
+│   ├── lotsizing_model.ipynb   # Modelo que considera custos unitários
+│   └── lotsizing_model2.ipynb  # Modelo que considera custos por caminhão
 ├── modelo.ipynb          # Jupyter Notebook com a formulação matemática do problema
 └── requirements.txt      # Dependências do projeto
 ```
@@ -90,10 +88,10 @@ O repositório inclui um script para gerar dados de exemplo aleatórios, mantend
 ### 3. Execução do Modelo de Otimização
 
 Os modelos de otimização estão implementados em Jupyter Notebooks:
-* `lead_timeless/data_pipeline.ipynb`: Uma versão inicial do modelo.
-* `v4/data_pipeline_v4.ipynb`: A versão mais completa que considera o **lead time** nas entregas.
-
-Para executar o modelo, abra um dos notebooks, carregue os dados de entrada (da pasta `sample_data/`) e execute as células. O resultado da otimização será salvo na pasta de resultados correspondente (ex: `v4/results/`).
+* `lotsizing_model.ipynb`:Modelo que considera custos unitários
+* `lotsizing_model2.ipynb`:Modelo que considera custos por caminhão
+  
+Para executar o modelo, abra um dos notebooks, carregue os dados de entrada (da pasta `sample_data/`) e execute as células. O resultado da otimização será salvo na pasta de resultados correspondente (ex: `model/results/`).
 
 ## Modelo Matemático
 
