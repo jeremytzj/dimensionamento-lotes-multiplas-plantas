@@ -1,3 +1,6 @@
+# Gera plainilhas com custo de frete unitario e dias de producao sem demanda
+
+
 import math
 import random
 from datetime import datetime, timedelta
