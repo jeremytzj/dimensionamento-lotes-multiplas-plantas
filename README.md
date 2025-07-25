@@ -82,3 +82,7 @@ A formulação matemática do problema está detalhada no arquivo `modelo.ipynb`
 * Balanço de Estoque nas Plantas e Centros de Distribuição
 * Capacidade Máxima de Armazenagem
 * Atendimento da Demanda (considerando lead times)
+
+
+O relatório do projeto em que foi desenvolvido este código está no repositório como:
+`relatorio_final.pdf`
