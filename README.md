@@ -24,8 +24,8 @@ O objetivo principal é criar um plano de produção e logística que minimize o
 ├── modelo/               # Código do modelo 
 │   ├── sample_data/
 │   ├── results/
-│   ├── lotsizing_model.ipynb   # Modelo que considera custos unitários
-│   └── lotsizing_model2.ipynb  # Modelo que considera custos por caminhão
+│   ├── lotsizing_model_unidade.ipynb   # Modelo que considera custos unitários
+│   └── lotsizing_model_caminhao.ipynb  # Modelo que considera custos por caminhão
 ├── modelo.ipynb          # Jupyter Notebook com a formulação matemática do problema
 └── requirements.txt      # Dependências do projeto
 ```
@@ -65,8 +65,8 @@ O repositório inclui um script para gerar dados de exemplo aleatórios, mantend
 ### 3. Execução do Modelo de Otimização
 
 Os modelos de otimização estão implementados em Jupyter Notebooks:
-* `lotsizing_model.ipynb`:Modelo que considera custos unitários
-* `lotsizing_model2.ipynb`:Modelo que considera custos por caminhão
+* `lotsizing_model_unidade.ipynb`:Modelo que considera custos unitários
+* `lotsizing_model_caminhao.ipynb`:Modelo que considera custos por caminhão
   
 Para executar o modelo, abra um dos notebooks, carregue os dados de entrada (da pasta `sample_data/`) e execute as células. O resultado da otimização será salvo na pasta de resultados correspondente (ex: `model/results/`).
 
